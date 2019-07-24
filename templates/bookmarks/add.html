@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<form method="post">
+        <legend class="border=bottom mb-4">Новая закладка</legend>
+        {% csrf_token %}
+        {{ form_add|crispy }}
+    <button class="btn btn-primary"  type="submit">Добавить</button>
+</form>
+{% endblock %}

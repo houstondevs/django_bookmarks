@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>{{ user.email }}</h1>
+<h3>Ваши закладки</h3>
+<a href="{% url 'parse_page' %}">Добавить новую закладку</a>
+<table class="table mt-2">
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">URL</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for book in books %}
+    <tr>
+      <td><img src="{{ book.favicon }}"></td>
+      <td><a href="{{ book.url }}">{{ book.url }}</a></td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.description }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
